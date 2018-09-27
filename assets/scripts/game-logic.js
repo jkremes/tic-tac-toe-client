@@ -17,8 +17,22 @@ const gameBoard = [
 const player_x = 'x'
 const player_o = 'o'
 
-//check if x/o won
+//create an array that shows the actual locations of each players move
+// const cells = [
+//
+// ]
 
+  //determine if player_x clicked 'top-left' - then cells[0] = player_x
+  //if player_o clicked 'bottom-middle' - then cells[7] = player_o
+  if (player) {
+
+  }
+]
+
+//check if x/o won
+const over = true if () {
+  turns.length === 9
+}
 //x won if
   //player_x is on 'top-left', 'top-middle', 'top-right',
   //player_x is on 'middle-left', 'middle-middle', 'middle-right',
