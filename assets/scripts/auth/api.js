@@ -1,5 +1,5 @@
 
-const store = require('../store.js')
+// const store = require('../store.js')
 const config = require('../config.js')
 
 // const updateBook = function (bookData) {
@@ -17,14 +17,15 @@ const config = require('../config.js')
 //     data: userData
 //   })
 // }
-const create = function (gameData) {
-  const gameId = gameData.game.id
+
+// USE THIS ONE
+const signUp = function (gameData) {
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
     data: gameData
   })
-
+}
 // const userClick = function (userData) {
 //   return $.ajax({
 //     url: config.apiUrl + '',
@@ -32,7 +33,7 @@ const create = function (gameData) {
 //     data: userData
 //   })
 // }
-//
+// //
 module.exports = {
-  create
+  signUp
 }

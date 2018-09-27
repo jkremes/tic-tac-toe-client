@@ -14,22 +14,38 @@
     <body>
       <h1>Browser Template</h1>
 
-      <h2>Game Board</h2>
+      <h2>Sign-up/Sign-in/Register</h2>
+      <form id="sign-up-form">
+        <legend>Sign-Up!</legend>
+        <input required placeholder="Enter Email" name="credentials[email]" type="email"/>
+        <input required placeholder="Enter Password" name="credentials[password]" type="password"/>
+        <input required placeholder="Confirm Password" name="credentials[password_confirmation]" type="password"/>
+        <input type="submit"/>
+      </form>
+      <form id="sign-in-form">
+        <legend>Sign-In!</legend>
+        <input required placeholder="Enter email" name="credentials[email]" type="email"/>
+        <input required placeholder="Enter password" name="credentials[email]" type="email"/>
+      </form>
+      <form id="register-form">
+        <legend>Register!</legend>
+      </form>
+      <h2 id="login">Game Board</h2>
       <div class="container">
         <div class="row 1">
-          <form id="top-left" class="col-4 col-md-4 box teal">top left</form>
-          <form id="top-middle" class="col-4 col-md-4 box teal">top middle</form>
-          <form id="top-right" class="col-4 col-md-4 box teal">top right</form>
+          <div id="top-left" class="col-4 col-md-4 box teal">top left</div>
+          <div id="top-middle" class="col-4 col-md-4 box teal">top middle</div>
+          <div id="top-right" class="col-4 col-md-4 box teal">top right</div>
         </div>
         <div class="row 2">
-          <form id="middle-left" class="col-4 col-md-4 box teal">middle left</form>
-          <form id="middle-middle" class="col-4 col-md-4 box teal">middle middle</form>
-          <form id="middle-right" class="col-4 col-md-4 box teal">middle right</form>
+          <div id="middle-left" class="col-4 col-md-4 box teal">middle left</div>
+          <div id="middle-middle" class="col-4 col-md-4 box teal">middle middle</div>
+          <div id="middle-right" class="col-4 col-md-4 box teal">middle right</div>
         </div>
         <div class="row 3">
-          <form id="bottom-left" class="col-4 col-md-4 box teal">bottom left</form>
-          <form id="bottom-middle" class="col-4 col-md-4 box teal">bottom middle</form>
-          <form id="bottom-right" class="col-4 col-md-4 box teal">bottom right</form>
+          <div id="bottom-left" class="col-4 col-md-4 box teal">bottom left</div>
+          <div id="bottom-middle" class="col-4 col-md-4 box teal">bottom middle</div>
+          <div id="bottom-right" class="col-4 col-md-4 box teal">bottom right</div>
         </div>
       </div>
 

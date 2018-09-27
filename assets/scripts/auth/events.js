@@ -1,21 +1,39 @@
-const getFormFields = require('../../../lib/get-form-fields.js')
-const api = require('./api.js')
-
-// const onClick = function (event) {
+// const getFormFields = require('../../../lib/get-form-fields.js')
+// const api = require('./api.js')
+//
+// // const onClick = function (event) {
+// //   event.preventDefault()
+// //   const data = getFormFields(event.target)
+// //   api.createExample(data)
+// //     .then(console.log)
+// //     .catch(console.log)
+// //
+// const createGame = function (event) {
 //   event.preventDefault()
 //   const data = getFormFields(event.target)
-//   api.createExample(data)
+//   api.create(data)
 //     .then(console.log)
 //     .catch(console.log)
+// }
 //
-const create = function (event) {
+// module.exports = {
+//   createGame
+// }
+const getFormFields = require('../../../lib/get-form-fields.js')
+const api = require('./api.js')
+// const ui = require('./ui.js')
+
+const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.signUp(data)
-    .then(ui.signUpSuccess)
-    .catch(ui.signUpFailure)
+    .then(console.log)
+    .catch(console.log)
 }
 
 module.exports = {
-  create
+  onSignUp
+  // onSignIn,
+  // onChangePassword,
+  // onSignOut
 }

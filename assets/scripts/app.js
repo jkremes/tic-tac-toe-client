@@ -8,5 +8,9 @@ const authEvents = require('./auth/events.js')
 
 $(() => {
   // your JS code goes here
-  $('#top-left').on('clicked', authEvents.create)
+  // $('#sign-up-form').on('submit', () => {
+  //   alert('you did something right')
+  // })
+  // $('#top-left').on('click', authEvents.create)
+  $('#sign-up-form').on('submit', authEvents.onSignUp)
 })

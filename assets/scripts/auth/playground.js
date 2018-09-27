@@ -1,6 +1,3 @@
-const playerX = 'x'
-const playerY = 'y'
-
 // over = [
 //   while (false) {
 //     if (playerX === win) {
@@ -22,15 +19,15 @@ const playerY = 'y'
 // const gameOver = () => {
 //   console.log('Hello')
 // }
-
-const userClicks = ['x', 'o', 'x', 'o', 'x', 'o', 'x']
-
-const turns = []
-
-let player_x = 'x'
-let player_o = 'o'
-
-let
-  for (let i = 0; i < turns.length; i++) {
-    turns[i]
-  }
+//
+// const userClicks = ['x', 'o', 'x', 'o', 'x', 'o', 'x']
+//
+// const turns = []
+//
+// let player_x = 'x'
+// let player_o = 'o'
+//
+// let
+//   for (let i = 0; i < turns.length; i++) {
+//     turns[i]
+//   }

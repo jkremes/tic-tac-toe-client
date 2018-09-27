@@ -2,8 +2,8 @@ curl --include --request POST "https://tic-tac-toe-wdi.herokuapp.com/games/" \
   --header "Content-type: application/json" \
   --data '{
   "game": {
-    "id": 1,
-    "cells": ["x","o","x","o","x","o","x","o","x"],
+    "id": 3,
+    "cells": ["","","","","","","","",""],
     "over": false,
     "player_x": {
       "id": 1,
