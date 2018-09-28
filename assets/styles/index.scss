@@ -1,1 +1,33 @@
 @import '~bootstrap/scss/bootstrap';
+
+// $button-color: #aa00000;
+//
+// .container {
+//   border: $button-color;
+// }
+
+// .div {
+//   display: block;
+//
+//   .container-fluid {
+//     display: flex;
+//     flex-wrap: wrap;
+//
+//     row1 {
+//       border: $move-border;
+//       display: flex;
+//       flex-wrap: wrap;
+//     }
+//
+//     move {
+//       border: 10px solid black;
+//     }
+//   }
+// }
+
+.move {
+  border: 10px solid black;
+  height: 200px;
+  width: 200px;
+  background-color: blue;
+}

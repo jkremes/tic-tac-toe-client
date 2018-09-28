@@ -37,6 +37,16 @@ const signOut = function () {
     method: 'DELETE'
   })
 }
+
+const newGame = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    method: 'POST'
+  })
+}
 // const updateBook = function (bookData) {
 //   const bookId = bookData.book.id
 //   return $.ajax({
@@ -73,5 +83,6 @@ module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  newGame
 }
