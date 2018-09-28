@@ -47,6 +47,26 @@ const newGame = function () {
     method: 'POST'
   })
 }
+
+const move = function (gameData) {
+  const gameId = gameData.game.id
+  return $.ajax({
+    url: config.apiUrl + `/games:${gameId}`,
+    headers: {
+      Authorization: `Token token=${store.game.id}`
+    },
+    method: 'PATCH',
+    data: gameData
+  })
+}
+
+// const getBook = function (bookData) {
+//   const bookId = bookData.book.id
+//   return $.ajax({
+//     url: `https://wdi-library-api.herokuapp.com/books/${bookId}`,
+//     method: 'GET'
+//   })
+// }
 // const updateBook = function (bookData) {
 //   const bookId = bookData.book.id
 //   return $.ajax({
@@ -84,5 +104,6 @@ module.exports = {
   signIn,
   changePassword,
   signOut,
-  newGame
+  newGame,
+  move
 }

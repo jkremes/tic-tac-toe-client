@@ -39,22 +39,42 @@
       <br>
       <button id="create-new-game"> Create New Game! </button>
       <br>
-      <h2 class="game-board">Game Board</h2>
+      <h2 id="game-board">Game Board</h2>
+      <!-- <form>
+        <input id="player-x" name="game[cell][index]" type="text" value="0">
+        <input id="player-o" name="game[cell][value]" type="text" value="x">
+        <input id="game-over" name="game[over]" type="text" value="false">
+      </form> -->
       <div class="container-fluid">
         <div class="row row1">
-          <div id="top-left" class="move"></div>
-          <div id="top-middle" class="move"></div>
-          <div id="top-right" class="move"></div>
+          <form id="top-left" class="move">
+            <input name="game[cell][index]" type="text" value="0" class="hidden">
+            <input name="game[cell][value]" type="text" value="x" class="hidden">
+            <input name="game[over]" type="text" value="false" class="hidden">
+          </form>
+          <form id="top-middle" class="move">
+            <input name="game[cell][index]" type="text" value="0" class="hidden">
+            <input name="game[cell][value]" type="text" value="x" class="hidden">
+            <input name="game[over]" type="text" value="false" class="hidden">
+          </form>
+          <form id="top-right" class="move">
+            <input name="game[cell][index]" type="text" value="0" class="hidden">
+            <input name="game[cell][value]" type="text" value="x" class="hidden">
+            <input name="game[over]" type="text" value="false" class="hidden">
+          </form>
+          <!-- <div data-cell-index="0" id="top-left" class="move"></div>
+          <div data-cell-index="1" id="top-middle" class="move"></div>
+          <div data-cell-index="2" id="top-right" class="move"></div> -->
         </div>
         <div class="row row2">
-          <div id="middle-left" class="move"></div>
-          <div id="middle-middle" class="move"></div>
-          <div id="middle-right" class="move"></div>
+          <div data-cell-index="3" id="middle-left" class="move"></div>
+          <div data-cell-index="4" id="middle-middle" class="move"></div>
+          <div data-cell-index="5" id="middle-right" class="move"></div>
         </div>
         <div class="row row3">
-          <div id="bottom-left" class="move"></div>
-          <div id="bottom-middle" class="move"></div>
-          <div id="bottom-right" class="move"></div>
+          <div data-cell-index="6" id="bottom-left" class="move"></div>
+          <div data-cell-index="7" id="bottom-middle" class="move"></div>
+          <div data-cell-index="8" id="bottom-right" class="move"></div>
         </div>
       </div>
 

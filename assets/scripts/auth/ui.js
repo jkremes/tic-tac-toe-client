@@ -50,13 +50,13 @@ const signOutFailure = function () {
 }
 
 const newGameSuccess = function () {
-  $('#login').html('You are signed out!')
-  $('#login').css('color', 'green')
+  $('#game-board').html('Good Luck!')
+  $('#game-board').css('color', 'green')
 }
 
 const newGameFailure = function () {
-  $('#login').html('Something went wrong, please try again')
-  $('#login').css('color', 'red')
+  $('#game-board').html('Something went wrong, are you correctly signed-in and/or logged-in? Otherwise, please try again.')
+  $('#game-board').css('color', 'red')
 }
 //
 module.exports = {

@@ -60,10 +60,19 @@ const onNewGame = function (event) {
     .catch(ui.newGameFailure)
 }
 
+const onMove = function (event) {
+  event.preventDefault()
+  const gameData = getFormFields(event.target)
+  api.move(gameData)
+    .then(console.log)
+    .catch(console.log)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
-  onNewGame
+  onNewGame,
+  onMove
 }
