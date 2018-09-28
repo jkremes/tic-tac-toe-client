@@ -49,11 +49,11 @@ const newGame = function () {
 }
 
 const move = function (gameData) {
-  const gameId = gameData.game.id
+  const gameId = store.game.id
   return $.ajax({
-    url: config.apiUrl + `/games:${gameId}`,
+    url: config.apiUrl + `/games/${gameId}`,
     headers: {
-      Authorization: `Token token=${store.game.id}`
+      Authorization: `Token token=${store.user.token}`
     },
     method: 'PATCH',
     data: gameData

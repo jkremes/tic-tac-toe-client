@@ -49,9 +49,10 @@ const signOutFailure = function () {
   $('#login').css('color', 'red')
 }
 
-const newGameSuccess = function () {
+const newGameSuccess = function (response) {
   $('#game-board').html('Good Luck!')
   $('#game-board').css('color', 'green')
+  store.game = response.game
 }
 
 const newGameFailure = function () {
