@@ -65,7 +65,6 @@ const onNewGame = function (event) {
 const onMove = function (event) {
   event.preventDefault()
   const moveIndex = parseInt($(event.target).attr('data-cell-index'))
-  let over = false
   // console.log(moveIndex)
   // console.log(store.game.data.index)
   // debugger
@@ -73,10 +72,12 @@ const onMove = function (event) {
     .then(checkWinner())
     .catch(console.log)
 }
-
+// console.log(store.game.cells[''])
 // write a function that will switch the currentPlayer
 let currentPlayer = 'x'
 let over = false
+let winner = 'x'
+
 const switchPlayer = function () {
   if (currentPlayer === 'x') {
     currentPlayer = 'o'
@@ -84,7 +85,6 @@ const switchPlayer = function () {
 }
 
 const checkWinner = function () {
-  let winner
   if (store.game.cells[0] === store.game.cells[1] && store.game.cells[0] === store.game.cells[2] && store.game.cells[0] !== '') {
     winner = store.game.cells[0]
     over = true
@@ -110,8 +110,12 @@ const checkWinner = function () {
     winner = store.game.cell[2]
     over = true
   }
+  if (store.game.cells[''] === 'x' || store.game.cells[''] === 'o') {
+    console.log('try another move!')
+  }
   store.game.over = over
   store.game.cells[''] = currentPlayer
+  console.log(winner)
   switchPlayer()
 }
 
