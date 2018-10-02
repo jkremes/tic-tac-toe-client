@@ -65,16 +65,18 @@ const onNewGame = function (event) {
 const onMove = function (event) {
   event.preventDefault()
   const moveIndex = parseInt($(event.target).attr('data-cell-index'))
+  let over = false
   // console.log(moveIndex)
   // console.log(store.game.data.index)
   // debugger
-  api.move(moveIndex)
-    .then(console.log)
+  api.move(moveIndex, currentPlayer, over)
+    .then(checkWinner())
     .catch(console.log)
 }
 
 // write a function that will switch the currentPlayer
 let currentPlayer = 'x'
+let over = false
 const switchPlayer = function () {
   if (currentPlayer === 'x') {
     currentPlayer = 'o'
@@ -82,25 +84,34 @@ const switchPlayer = function () {
 }
 
 const checkWinner = function () {
-  let winner = ""
+  let winner
   if (store.game.cells[0] === store.game.cells[1] && store.game.cells[0] === store.game.cells[2] && store.game.cells[0] !== '') {
     winner = store.game.cells[0]
+    over = true
   } else if (store.game.cells[3] === store.game.cells[4] && store.game.cells[3] === store.game.cells[5] && store.game.cells[3] !== '') {
     winner = store.game.cell[3]
+    over = true
   } else if (store.game.cells[6] === store.game.cells[7] && store.game.cells[6] === store.game.cells[8] && store.game.cells[6] !== '') {
     winner = store.game.cell[6]
+    over = true
   } else if (store.game.cells[0] === store.game.cells[3] && store.game.cells[0] === store.game.cells[6] && store.game.cells[0] !== '') {
     winner = store.game.cell[0]
+    over = true
   } else if (store.game.cells[1] === store.game.cells[4] && store.game.cells[1] === store.game.cells[7] && store.game.cells[1] !== '') {
     winner = store.game.cell[1]
+    over = true
   } else if (store.game.cells[2] === store.game.cells[5] && store.game.cells[2] === store.game.cells[8] && store.game.cells[2] !== '') {
     winner = store.game.cell[2]
+    over = true
   } else if (store.game.cells[0] === store.game.cells[4] && store.game.cells[0] === store.game.cells[8] && store.game.cells[0] !== '') {
     winner = store.game.cell[0]
+    over = true
   } else if (store.game.cells[2] === store.game.cells[4] && store.game.cells[2] === store.game.cells[6] && store.game.cells[2] !== '') {
     winner = store.game.cell[2]
+    over = true
   }
-  store.game.over = true
+  store.game.over = over
+  store.game.cells[''] = currentPlayer
   switchPlayer()
 }
 
