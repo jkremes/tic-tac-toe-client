@@ -20,6 +20,7 @@
 //   createGame
 // }
 const getFormFields = require('../../../lib/get-form-fields.js')
+const addNestedValue = require('../../../lib/add-nested-value.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('../store.js')
@@ -63,9 +64,11 @@ const onNewGame = function (event) {
 
 const onMove = function (event) {
   event.preventDefault()
-
-  const gameData = getFormFields(event.target)
-  api.move(gameData)
+  const moveIndex = parseInt($(event.target).attr('data-cell-index'))
+  // console.log(moveIndex)
+  // console.log(store.game.data.index)
+  // debugger
+  api.move(moveIndex)
     .then(console.log)
     .catch(console.log)
 }
@@ -75,7 +78,7 @@ let currentPlayer = 'x'
 const switchPlayer = function () {
   if (currentPlayer === 'x') {
     currentPlayer = 'o'
-  } currentPlayer = 'x'
+  } else { currentPlayer = 'x' }
 }
 
 const checkWinner = function () {

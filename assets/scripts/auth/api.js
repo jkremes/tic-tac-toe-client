@@ -48,15 +48,28 @@ const newGame = function () {
   })
 }
 
-const move = function (gameData) {
+const move = function (gameIndex) {
   const gameId = store.game.id
+  // const gameIndex = store.game.cells['']
+  // console.log(gameIndex)
+  // debugger
   return $.ajax({
     url: config.apiUrl + `/games/${gameId}`,
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
     method: 'PATCH',
-    data: gameData
+    data:
+    // store.game.cells[gameIndex]
+    {
+      game: {
+        cell: {
+          'index': gameIndex,
+          'value': 'x'
+        },
+        'over': false
+      }
+    }
   })
 }
 
