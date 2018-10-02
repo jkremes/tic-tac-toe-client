@@ -53,6 +53,7 @@ const move = function (gameIndex, currentPlayer, over) {
   // const gameIndex = store.game.cells['']
   // console.log(gameIndex)
   // debugger
+  console.log(over)
   return $.ajax({
     url: config.apiUrl + `/games/${gameId}`,
     headers: {

@@ -69,7 +69,7 @@ const onMove = function (event) {
   // console.log(store.game.data.index)
   // debugger
   api.move(moveIndex, currentPlayer, over)
-    .then(checkWinner())
+    .then(checkWinner(moveIndex))
     .catch(console.log)
 }
 // console.log(store.game.cells[''])
@@ -84,7 +84,9 @@ const switchPlayer = function () {
   } else { currentPlayer = 'x' }
 }
 
-const checkWinner = function () {
+const checkWinner = function (moveIndex) {
+  console.log(over)
+  console.log(store.game.cells)
   if (store.game.cells[0] === store.game.cells[1] && store.game.cells[0] === store.game.cells[2] && store.game.cells[0] !== '') {
     winner = store.game.cells[0]
     over = true
@@ -110,11 +112,11 @@ const checkWinner = function () {
     winner = store.game.cell[2]
     over = true
   }
-  if (store.game.cells[''] === 'x' || store.game.cells[''] === 'o') {
+  if (store.game.cells[moveIndex] !== '') {
     console.log('try another move!')
   }
-  store.game.over = over
-  store.game.cells[''] = currentPlayer
+  // store.game.over = over
+  store.game.cells[moveIndex] = currentPlayer
   console.log(winner)
   switchPlayer()
 }
