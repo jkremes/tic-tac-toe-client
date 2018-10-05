@@ -28,24 +28,24 @@
         <input required placeholder="Enter password" name="credentials[password]" type="password"/>
         <input type="submit"/>
       </form>
-      <form id="change-password-form">
+      <form id="change-password-form" class="hidden">
         <legend> Change Password </legend>
         <input required placeholder="Enter Old Password" name="passwords[old]" type="password"/>
         <input required placeholder="Enter New Password" name="passwords[new]" type="password"/>
         <input type="submit" />
       </form>
       <br>
-      <button id="sign-out-button"> Sign Out </button>
+      <button id="sign-out-button" class="hidden"> Sign Out </button>
       <br>
-      <button id="create-new-game"> Create New Game! </button>
+      <button id="create-new-game" class="hidden"> Create New Game! </button>
       <br>
-      <h2 id="game-board">Game Board</h2>
+      <h2 id="game-messages"></h2>
       <!-- <form>
         <input id="player-x" name="game[cell][index]" type="text" value="0">
         <input id="player-o" name="game[cell][value]" type="text" value="x">
         <input id="game-over" name="game[over]" type="text" value="false">
       </form> -->
-      <div class="container-fluid">
+      <div id="game-board" class="container-fluid hidden">
         <div class="row row1">
           <div id="top-left" class="move" data-cell-index="0"></div>
           <!-- <form>

@@ -48,7 +48,7 @@ const newGame = function () {
   })
 }
 
-const move = function (gameIndex, currentPlayer, over) {
+const move = function (moveIndex, currentPlayer, over) {
   const gameId = store.game.id
   // const gameIndex = store.game.cells['']
   // console.log(gameIndex)
@@ -65,10 +65,10 @@ const move = function (gameIndex, currentPlayer, over) {
     {
       game: {
         cell: {
-          'index': gameIndex,
-          'value': currentPlayer
+          'index': store.game.cells[moveIndex],
+          'value': store.game.cells[currentPlayer]
         },
-        'over': over
+        'over': store.game.over
       }
     }
   })
