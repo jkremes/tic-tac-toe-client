@@ -22,7 +22,8 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
-const store = require('../store.js')
+const move = require('./move.js')
+// const store = require('../store.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -64,57 +65,9 @@ const onNewGame = function (event) {
 const onMove = function (event) {
   event.preventDefault()
   const moveIndex = parseInt($(event.target).attr('data-cell-index'))
-
-  const checkWinner = function (moveIndex, over, currentPlayer) {
-    console.log(store.game.cells)
-    if (store.game.cells[0] === store.game.cells[1] && store.game.cells[0] === store.game.cells[2] && store.game.cells[0] !== '') {
-      // winner = store.game.cells[0]
-      over = true
-    } else if (store.game.cells[3] === store.game.cells[4] && store.game.cells[3] === store.game.cells[5] && store.game.cells[3] !== '') {
-      // winner = store.game.cell[3]
-      over = true
-    } else if (store.game.cells[6] === store.game.cells[7] && store.game.cells[6] === store.game.cells[8] && store.game.cells[6] !== '') {
-      // winner = store.game.cell[6]
-      over = true
-    } else if (store.game.cells[0] === store.game.cells[3] && store.game.cells[0] === store.game.cells[6] && store.game.cells[0] !== '') {
-      // winner = store.game.cell[0]
-      over = true
-    } else if (store.game.cells[1] === store.game.cells[4] && store.game.cells[1] === store.game.cells[7] && store.game.cells[1] !== '') {
-      // winner = store.game.cell[1]
-      over = true
-    } else if (store.game.cells[2] === store.game.cells[5] && store.game.cells[2] === store.game.cells[8] && store.game.cells[2] !== '') {
-      // winner = store.game.cell[2]
-      over = true
-    } else if (store.game.cells[0] === store.game.cells[4] && store.game.cells[0] === store.game.cells[8] && store.game.cells[0] !== '') {
-      // winner = store.game.cell[0]
-      over = true
-    } else if (store.game.cells[2] === store.game.cells[4] && store.game.cells[2] === store.game.cells[6] && store.game.cells[2] !== '') {
-      // winner = store.game.cell[2]
-      over = true
-    }
-    console.log(store.game.cells)
-    if (store.game.cells[moveIndex] !== '') {
-      console.log('try another move!')
-    }
-    console.log(currentPlayer)
-    store.game.over = over
-    console.log(store)
-    // console.log(winner)
-    console.log(over)
-    const switchPlayer = function (currentPlayer) {
-      if (currentPlayer === 'x') {
-        currentPlayer = 'o'
-      } else {
-        currentPlayer = 'x'
-      }
-    }
-    switchPlayer(currentPlayer)
-  }
-
-  // console.log(moveIndex)
-  // console.log(store.game.data.index)
-  // debugger
-  api.move(moveIndex, checkWinner(moveIndex, false, 'x'))
+  const currentPlayer = move.switchPlayer()
+  // console.log(currentPlayer)
+  api.move(moveIndex, currentPlayer)
     // .then(checkWinner(moveIndex))
     .then(console.log)
     .catch(console.log)

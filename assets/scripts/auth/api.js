@@ -53,7 +53,6 @@ const move = function (moveIndex, currentPlayer, over) {
   // const gameIndex = store.game.cells['']
   // console.log(gameIndex)
   // debugger
-  console.log(over)
   return $.ajax({
     url: config.apiUrl + `/games/${gameId}`,
     headers: {
@@ -65,10 +64,10 @@ const move = function (moveIndex, currentPlayer, over) {
     {
       game: {
         cell: {
-          'index': store.game.cells[moveIndex],
-          'value': store.game.cells[currentPlayer]
+          'index': moveIndex,
+          'value': store.game.player_x
         },
-        'over': store.game.over
+        'over': over
       }
     }
   })
