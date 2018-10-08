@@ -23,7 +23,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
 const move = require('./move.js')
-// const store = require('../store.js')
+const store = require('../store.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -65,8 +65,9 @@ const onNewGame = function (event) {
 const onMove = function (event) {
   event.preventDefault()
   const moveIndex = parseInt($(event.target).attr('data-cell-index'))
+  store.game.moveIndex = moveIndex
+  console.log(moveIndex)
   const currentPlayer = move.switchPlayer()
-  // console.log(currentPlayer)
   api.move(moveIndex, currentPlayer)
     // .then(checkWinner(moveIndex))
     .then(console.log)

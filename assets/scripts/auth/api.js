@@ -65,7 +65,7 @@ const move = function (moveIndex, currentPlayer, over) {
       game: {
         cell: {
           'index': moveIndex,
-          'value': store.game.player_x
+          'value': store.game.cells[currentPlayer]
         },
         'over': over
       }
