@@ -24,6 +24,7 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const move = require('./move.js')
 const store = require('../store.js')
+const moveUi = require('./moveUi.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -67,11 +68,14 @@ const onMove = function (event) {
   const moveIndex = parseInt($(event.target).attr('data-cell-index'))
   const checkIfCellPlayed = function () {
     if (store.game.cells[moveIndex] !== '') {
-      console.log('you cant do that')
+      // console.log('you cant do that')
+      store.game.wrongMove = true
+      // event.preventDefault()
     }
   }
   checkIfCellPlayed()
   store.game.moveIndex = moveIndex
+  moveUi.changeCellVisual()
   move.switchPlayer()
   store.game.cells[moveIndex] = store.game.currentPlayer
   move.checkWinner(false)

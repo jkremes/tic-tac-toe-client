@@ -71,8 +71,9 @@ const newGameFailure = function () {
   $('#game-board').css('color', 'red')
 }
 
-const moveSuccess = function (response) {
-  store.game.cells = response.game.cells
+const moveSuccess = function () {
+  $('#top-left').html('you moved here')
+  $('#top-left').css('color', 'red')
 }
 //
 module.exports = {
