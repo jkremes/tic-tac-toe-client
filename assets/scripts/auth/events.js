@@ -75,9 +75,9 @@ const onMove = function (event) {
   }
   checkIfCellPlayed()
   store.game.moveIndex = moveIndex
-  moveUi.changeCellVisual()
   move.switchPlayer()
   store.game.cells[moveIndex] = store.game.currentPlayer
+  moveUi.changeCellVisual()
   move.checkWinner(false)
   api.move()
     .then(console.log)
