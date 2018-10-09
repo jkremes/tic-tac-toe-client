@@ -48,11 +48,18 @@ const newGame = function () {
   })
 }
 
-const move = function (moveIndex, currentPlayer, over) {
+const move = function () {
   const gameId = store.game.id
+  console.log(store.game.currentPlayer)
+  // const cellData = store.game.cells
+  const index = store.game.moveIndex
+  const player = store.game.currentPlayer
+  const over = store.game.over
   // const gameIndex = store.game.cells['']
-  // console.log(gameIndex)
   // debugger
+  console.log(index)
+  console.log(player)
+  console.log(over)
   return $.ajax({
     url: config.apiUrl + `/games/${gameId}`,
     headers: {
@@ -62,10 +69,10 @@ const move = function (moveIndex, currentPlayer, over) {
     data:
     // store.game.cells[gameIndex]
     {
-      game: {
-        cell: {
-          'index': moveIndex,
-          'value': store.game.cells[currentPlayer]
+      'game': {
+        'cell': {
+          'index': index,
+          'value': player
         },
         'over': over
       }
@@ -73,6 +80,15 @@ const move = function (moveIndex, currentPlayer, over) {
   })
 }
 
+// {
+//   "game": {
+//     "cell": {
+//       "index": 0,
+//       "value": "x"
+//     },
+//     "over": false
+//   }
+// }
 // const getBook = function (bookData) {
 //   const bookId = bookData.book.id
 //   return $.ajax({

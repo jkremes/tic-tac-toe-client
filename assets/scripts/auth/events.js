@@ -67,8 +67,33 @@ const onMove = function (event) {
   const moveIndex = parseInt($(event.target).attr('data-cell-index'))
   store.game.moveIndex = moveIndex
   console.log(moveIndex)
-  const currentPlayer = move.switchPlayer()
-  api.move(moveIndex, currentPlayer)
+  // const cellData = move.switchPlayer()
+  // console.log(cellData)
+  // let currentPlayer = 'o'
+  // const switchPlayer = function () {
+  //   if (currentPlayer === 'x') {
+  //     currentPlayer = 'o'
+  //   } else {
+  //     currentPlayer = 'x'
+  //   }
+  //   store.game.currentPlayer = currentPlayer
+  //   console.log(store.game.currentPlayer)
+  //   // console.log(currentPlayer)
+  //   // store.game.cells[store.game.moveIndex] = currentPlayer
+  //   // console.log(store.game.cells[store.game.moveIndex])
+  //   // console.log(store.game.cells)
+  // }
+  move.switchPlayer()
+  console.log(store.game.currentPlayer)
+  // const currentPlayer = store.game.currentPlayer
+  store.game.cells[moveIndex] = store.game.currentPlayer
+  // store.game.currentPlayer = currentPlayer
+  // store.game.cells[store.game.moveIndex] = currentPlayer
+  // console.log(cellData)
+  const over = move.checkWinner(false)
+  console.log(over)
+  // const gameData = store.game.cells
+  api.move()
     // .then(checkWinner(moveIndex))
     .then(console.log)
     .catch(console.log)
