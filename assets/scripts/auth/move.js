@@ -15,7 +15,7 @@ const switchPlayer = function () {
 }
 
 const checkWinner = function (over) {
-  console.log(store.game.cells)
+  // console.log(store.game.cells)
   // over = store.game.over
   if (store.game.cells[0] === store.game.cells[1] && store.game.cells[0] === store.game.cells[2] && store.game.cells[0] !== '') {
     // winner = store.game.cells[0]
@@ -42,13 +42,7 @@ const checkWinner = function (over) {
     // winner = store.game.cell[2]
     over = true
   }
-  if (store.game.moveIndex !== '') {
-    console.log('try another move!')
-  }
-  console.log(over)
   store.game.over = over
-  // console.log(winner)
-  // switchPlayer()
 }
 
 // console.log(store.game.cells)
@@ -56,6 +50,11 @@ const checkWinner = function (over) {
 // console.log(moveIndex)
 // console.log(store.game.data.index)
 // debugger
+
+// if (store.game.moveIndex === '') {
+//   console.log('try another move!')
+// }
+// console.log(over)
 
 module.exports = {
   switchPlayer,
