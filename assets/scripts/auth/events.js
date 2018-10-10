@@ -66,22 +66,43 @@ const onNewGame = function (event) {
 const onMove = function (event) {
   event.preventDefault()
   const moveIndex = parseInt($(event.target).attr('data-cell-index'))
-  const checkIfCellPlayed = function () {
-    if (store.game.cells[moveIndex] !== '') {
-      // console.log('you cant do that')
-      store.game.wrongMove = true
-      // event.preventDefault()
-    }
+  // const checkIfCellPlayed = function () {
+  //   if (store.game.cells[moveIndex] !== '') {
+  //     console.log('you cant do that')
+  //     // event.stopPropagation()
+  //     // store.game.wrongMove = true
+  //     // console.log(store.game.wrongMove)
+  //     // event.preventDefault()
+  //   }
+  // }
+  // checkIfCellPlayed()
+  if (store.game.cells[moveIndex] !== '') {
+    console.log('you cant do that')
+    $('#game-messages').html('wrong move.')
+    $('#game-messages').css('color', 'red')
+    // event.stopPropagation()
+    // store.game.wrongMove = true
+    // console.log(store.game.wrongMove)
+    // event.preventDefault()
+  } else {
+    store.game.moveIndex = moveIndex
+    move.switchPlayer()
+    store.game.cells[moveIndex] = store.game.currentPlayer
+    moveUi.changeCellVisual()
+    move.checkWinner(false)
+    api.move()
+      .then(console.log)
+      .catch(console.log)
   }
-  checkIfCellPlayed()
-  store.game.moveIndex = moveIndex
-  move.switchPlayer()
-  store.game.cells[moveIndex] = store.game.currentPlayer
-  moveUi.changeCellVisual()
-  move.checkWinner(false)
-  api.move()
-    .then(console.log)
-    .catch(console.log)
+  // checkIfCellPlayed()
+  // store.game.moveIndex = moveIndex
+  // move.switchPlayer()
+  // store.game.cells[moveIndex] = store.game.currentPlayer
+  // moveUi.changeCellVisual()
+  // move.checkWinner(false)
+  // api.move()
+  //   .then(console.log)
+  //   .catch(console.log)
 }
 
 module.exports = {
