@@ -1,5 +1,5 @@
 const store = require('../store.js')
-const events = require('./events.js')
+// const events = require('./events.js')
 
 const signUpSuccess = function () {
   $('#login').html('Sign up success!')
@@ -65,8 +65,7 @@ const newGameSuccess = function (response) {
   store.game = response.game
   $('#game-board').removeClass('hidden')
   $('.move').html('')
-  $('.move').on('click', events.onMove)
-  // $('#top-left').on('click', events.onMove)
+  // $('.move').on('click', events.onMove)
 }
 
 const newGameFailure = function () {

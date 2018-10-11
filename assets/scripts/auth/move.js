@@ -1,16 +1,16 @@
 
 const store = require('../store.js')
+const events = require('./events.js')
 
-let currentPlayer = 'o'
 const switchPlayer = function () {
-  if (currentPlayer === 'x') {
-    currentPlayer = 'o'
+  if (events.currentPlayer === 'x') {
+    events.currentPlayer = 'o'
   } else {
-    currentPlayer = 'x'
+    events.currentPlayer = 'x'
   }
   // console.log(currentPlayer)
   // store.game.cells[store.game.moveIndex] = currentPlayer
-  store.game.currentPlayer = currentPlayer
+  store.game.currentPlayer = events.currentPlayer
   // console.log(store.game.cells)
 }
 

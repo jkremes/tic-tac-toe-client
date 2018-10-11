@@ -65,6 +65,10 @@ const onNewGame = function (event) {
 
 const onMove = function (event) {
   event.preventDefault()
+  if (store.game.over === true) {
+    return
+  }
+  console.log('you have clicked a box successfully')
   const moveIndex = parseInt($(event.target).attr('data-cell-index'))
   // const checkIfCellPlayed = function () {
   //   if (store.game.cells[moveIndex] !== '') {
@@ -102,7 +106,7 @@ const onMove = function (event) {
     if (store.game.over === true) {
       $('#game-messages').html(`${store.game.currentPlayer} wins!`)
       $('#game-messages').css('color', 'green')
-      $('.move').off('click', onMove)
+      // $('.move').off('click', onMove)
     }
     // api.move()
     //   .then(console.log)
