@@ -90,14 +90,19 @@ const onMove = function (event) {
     store.game.cells[moveIndex] = store.game.currentPlayer
     moveUi.changeCellVisual()
     move.checkWinner(false)
+    // if (store.game.over === true) {
+    //   $('#game-messages').html(`${store.game.currentPlayer} wins!`)
+    //   $('#game-messages').css('color', 'green')
+    //   $('.move').off()
+    // } else {
+    //   api.move()
+    //     .then(console.log)
+    //     .catch(console.log)
+    // }
     if (store.game.over === true) {
       $('#game-messages').html(`${store.game.currentPlayer} wins!`)
       $('#game-messages').css('color', 'green')
-      $('.move').off()
-    } else {
-      api.move()
-        .then(console.log)
-        .catch(console.log)
+      $('.move').off('click', onMove)
     }
     // api.move()
     //   .then(console.log)
@@ -109,9 +114,9 @@ const onMove = function (event) {
   // store.game.cells[moveIndex] = store.game.currentPlayer
   // moveUi.changeCellVisual()
   // move.checkWinner(false)
-  // api.move()
-  //   .then(console.log)
-  //   .catch(console.log)
+  api.move()
+    .then(console.log)
+    .catch(console.log)
 }
 
 module.exports = {
