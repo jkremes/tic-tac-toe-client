@@ -65,6 +65,7 @@ const newGameSuccess = function (response) {
   store.game = response.game
   $('#game-board').removeClass('hidden')
   $('.move').html('')
+  store.currentPlayer = 'o'
   // $('.move').on('click', events.onMove)
 }
 

@@ -50,10 +50,10 @@ const newGame = function () {
 
 const move = function () {
   const gameId = store.game.id
-  console.log(store.game.currentPlayer)
+  console.log(store.currentPlayer)
   // const cellData = store.game.cells
   const index = store.game.moveIndex
-  const player = store.game.currentPlayer
+  const player = store.currentPlayer
   const over = store.game.over
   // const gameIndex = store.game.cells['']
   // debugger
