@@ -80,6 +80,18 @@ const move = function () {
   })
 }
 
+const gamesPlayed = function () {
+  // const gameId = store.game.id
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    method: 'GET'
+  })
+}
+
+// {"games":[{"id":17,"cells":["x","x","x","o","o","","","",""],"over":true,"player_x":{"id":3,"email":"gho@gho"},"player_o":null},{"id":18,"cells":["o","o","","x","x","x","","",""],"over":true,"player_x":{"id":3,"email":"gho@gho"},"player_o":null},{"id":16,"cells":["x","x","x","o","o","","","",""],"over":true,"player_x":{"id":3,"email":"gho@gho"},"player_o":null}]}
 // {
 //   "game": {
 //     "cell": {
@@ -134,5 +146,6 @@ module.exports = {
   changePassword,
   signOut,
   newGame,
-  move
+  move,
+  gamesPlayed
 }

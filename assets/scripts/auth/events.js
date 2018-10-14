@@ -123,11 +123,19 @@ const onMove = function (event) {
     .catch(console.log)
 }
 
+const checkGamesPlayed = function (event) {
+  event.preventDefault()
+  api.gamesPlayed()
+    .then(ui.getGamesSuccess)
+    .catch(console.log)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
   onNewGame,
-  onMove
+  onMove,
+  checkGamesPlayed
 }

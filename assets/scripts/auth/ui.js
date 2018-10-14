@@ -23,6 +23,7 @@ const signInSuccess = function (response) {
   $('#sign-out-button').removeClass('hidden')
   $('#create-new-game').removeClass('hidden')
   $('#change-password-form').removeClass('hidden')
+  $('#check-games-played').removeClass('hidden')
 }
 
 const signInFailure = function () {
@@ -78,6 +79,30 @@ const moveSuccess = function () {
   $('#top-left').html('you moved here')
   $('#top-left').css('color', 'red')
 }
+
+const getGamesSuccess = function (response) {
+  const totalGamesPlayed = response.games.length
+  $('#games-played').html(`you have played ${totalGamesPlayed} games!`)
+
+  // response.games.forEach(game => {
+  //   const gameHTML = (
+  //     "games": [
+  //       {
+  //         "id": 1,
+  //         "cells": ["o","x","o","x","o","x","o","x","o"],
+  //         "over": true,
+  //         "player_x": {
+  //           "id": 1,
+  //           "email": "and@and.com"
+  //         },
+  //         "player_o": {
+  //           "id": 3,
+  //           "email": "dna@dna.com"
+  //         }
+  //       },
+  //   )
+  // })
+}
 //
 module.exports = {
   signUpSuccess,
@@ -91,5 +116,6 @@ module.exports = {
   newGameSuccess,
   newGameFailure,
   moveSuccess,
+  getGamesSuccess,
   store
 }
