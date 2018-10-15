@@ -55,6 +55,7 @@ const signOutSuccess = function () {
   $('#game-board').addClass('hidden')
   $('#game-messages').addClass('hidden')
   $('#games-played').addClass('hidden')
+  $('#check-games-played').addClass('hidden')
 }
 
 const signOutFailure = function () {
