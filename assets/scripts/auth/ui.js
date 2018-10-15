@@ -1,5 +1,4 @@
 const store = require('../store.js')
-// const events = require('./events.js')
 
 const signUpSuccess = function () {
   $('#login').html('Sign up success!')
@@ -53,6 +52,9 @@ const signOutSuccess = function () {
   $('#change-password-form').addClass('hidden')
   $('#sign-out-button').addClass('hidden')
   $('#create-new-game').addClass('hidden')
+  $('#game-board').addClass('hidden')
+  $('#game-messages').addClass('hidden')
+  $('#games-played').addClass('hidden')
 }
 
 const signOutFailure = function () {
@@ -67,7 +69,6 @@ const newGameSuccess = function (response) {
   $('#game-board').removeClass('hidden')
   $('.move').html('')
   store.currentPlayer = 'o'
-  // $('.move').on('click', events.onMove)
 }
 
 const newGameFailure = function () {
@@ -75,35 +76,29 @@ const newGameFailure = function () {
   $('#game-board').css('color', 'red')
 }
 
-const moveSuccess = function () {
-  $('#top-left').html('you moved here')
-  $('#top-left').css('color', 'red')
-}
-
 const getGamesSuccess = function (response) {
   const totalGamesPlayed = response.games.length
   $('#games-played').html(`you have played ${totalGamesPlayed} games!`)
-
-  // response.games.forEach(game => {
-  //   const gameHTML = (
-  //     "games": [
-  //       {
-  //         "id": 1,
-  //         "cells": ["o","x","o","x","o","x","o","x","o"],
-  //         "over": true,
-  //         "player_x": {
-  //           "id": 1,
-  //           "email": "and@and.com"
-  //         },
-  //         "player_o": {
-  //           "id": 3,
-  //           "email": "dna@dna.com"
-  //         }
-  //       },
-  //   )
-  // })
 }
-//
+
+const getGamesFailure = function () {
+  $('#game-messages').html('Something went wrong, please try again')
+  $('#game-messages').css('color', 'red')
+}
+
+const moveSuccess = function () {
+  if (store.game.over !== true) {
+    $('#move-messages').html('Good move!')
+    $('#move-messages').css('color', 'green')
+    $('#move-messages').fadeTo()
+  }
+}
+
+const moveFailure = function () {
+  $('#move-messages').html('Wrong move!')
+  $('#move-messages').css('color', 'red')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -115,7 +110,9 @@ module.exports = {
   signOutFailure,
   newGameSuccess,
   newGameFailure,
-  moveSuccess,
   getGamesSuccess,
+  getGamesFailure,
+  moveSuccess,
+  moveFailure,
   store
 }
